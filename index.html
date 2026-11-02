@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PH101 Applied Physics</title>
+<meta name="description" content="PH101 Applied Physics course page: lectures, tutorials, lab content and demonstration videos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Literata:opsz,wght@7..72,400;7..72,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <p class="eyebrow" id="m-inst"></p>
+    <h1><span class="code" id="m-code"></span> <span id="m-title"></span></h1>
+    <p class="meta"><span id="m-sem"></span><span class="dot">·</span><span id="m-dept"></span></p>
+    <svg class="trace" viewBox="0 0 600 60" preserveAspectRatio="none" aria-hidden="true">
+      <path id="trace-path" d=""/>
+    </svg>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap tabs-inner">
+    <a href="#home">Home</a>
+    <a href="#lectures">Course Content</a>
+    <a href="#tutorials">Tutorials</a>
+    <a href="#lab">PH101L Lab</a>
+    <a href="#demos">Demonstrations</a>
+    <label class="search">
+      <span class="sr">Search</span>
+      <input id="q" type="search" placeholder="Search materials…" autocomplete="off">
+    </label>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="admin" class="admin" hidden>
+    <h2>Add content</h2>
+    <p class="hint">Admin mode. Items you add appear below immediately, but only on this computer. To publish them, click <b>Download content.js</b> and upload that file to your GitHub repository (replacing the old one).</p>
+    <form id="add-form" class="form">
+      <label>Section
+        <select id="f-section">
+          <option value="lectures">Course Content (lecture)</option>
+          <option value="tutorials">Tutorial</option>
+          <option value="labs">Lab experiment</option>
+          <option value="demos">Demonstration video</option>
+          <option value="announcements">Announcement</option>
+        </select>
+      </label>
+      <label class="f-week">Week <input id="f-week" type="number" min="1" max="16" value="1"></label>
+      <label class="wide">Title <input id="f-title" type="text" required></label>
+      <label class="wide">Description <textarea id="f-desc" rows="2"></textarea></label>
+      <label class="wide f-obj" hidden>Objective (lab) <input id="f-obj" type="text"></label>
+      <label class="wide f-video" hidden>Video link (YouTube or .mp4) <input id="f-video" type="url" placeholder="https://www.youtube.com/watch?v=…"></label>
+      <label class="wide f-topic" hidden>Topic <input id="f-topic" type="text"></label>
+      <div class="wide f-links">
+        <span class="lbl">Links (label + URL or repo path like materials/labs/Lab03.pdf)</span>
+        <div id="f-link-rows"></div>
+        <button type="button" class="btn ghost" id="f-add-link">+ Add link</button>
+      </div>
+      <div class="wide actions">
+        <button type="submit" class="btn">Add item</button>
+        <button type="button" class="btn ghost" id="dl">Download content.js</button>
+        <button type="button" class="btn ghost" id="cp">Copy content.js</button>
+        <span id="admin-msg" class="msg" role="status"></span>
+      </div>
+    </form>
+  </section>
+
+  <section id="home" class="panel">
+    <div class="home-grid">
+      <div>
+        <h2>About the course</h2>
+        <p id="about" class="lede"></p>
+        <dl class="people">
+          <div><dt>Instructor</dt><dd id="p-inst"></dd></div>
+          <div><dt>Lab</dt><dd id="p-lab"></dd></div>
+          <div><dt>Office</dt><dd id="p-contact"></dd></div>
+        </dl>
+      </div>
+      <aside class="notice">
+        <h3>Announcements</h3>
+        <ul id="announcements"></ul>
+      </aside>
+    </div>
+    <div class="counts" id="counts"></div>
+  </section>
+
+  <section id="lectures" class="panel">
+    <div class="sec-head"><h2>Course Content</h2><p>Lecture slides and notes, week by week.</p></div>
+    <ol class="list" id="list-lectures"></ol>
+  </section>
+
+  <section id="tutorials" class="panel">
+    <div class="sec-head"><h2>Tutorials</h2><p>Problem sheets and solutions.</p></div>
+    <ol class="list" id="list-tutorials"></ol>
+  </section>
+
+  <section id="lab" class="panel">
+    <div class="sec-head"><h2>PH101L Lab</h2><p>Experiments, manuals and data sheets. Read the manual before you come to the lab.</p></div>
+    <ol class="list" id="list-labs"></ol>
+  </section>
+
+  <section id="demos" class="panel">
+    <div class="sec-head"><h2>Demonstrations</h2><p>Recorded classroom and lab demonstrations.</p></div>
+    <div class="videos" id="list-demos"></div>
+  </section>
+
+  <p class="empty-search" id="no-results" hidden>Nothing matches your search.</p>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span id="f-line"></span></div>
+</footer>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
